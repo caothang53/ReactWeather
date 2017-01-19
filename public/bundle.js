@@ -26633,7 +26633,7 @@
 	    }
 
 	    function renderError() {
-	      if (typeof errorMessage === 'string') {
+	      if (typeof errorMessage !== 'string') {
 	        return React.createElement(ErrorModal, null);
 	      }
 	    }
@@ -26772,13 +26772,9 @@
 	        'Our error message!'
 	      ),
 	      React.createElement(
-	        'p',
-	        null,
-	        React.createElement(
-	          'button',
-	          { className: 'button hollow', 'data-close': true },
-	          'Okay'
-	        )
+	        'button',
+	        { className: 'button hollow', 'data-close': true },
+	        'OK'
 	      )
 	    );
 	  }
