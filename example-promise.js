@@ -3,11 +3,11 @@
 //   callback('City not found');
 // }
 //
-// getTempCallback('London', function (err, temp) {
+// getTempCallback('Philadelphia', function (err, temp) {
 //   if (err) {
 //     console.log('error', err);
 //   } else {
-//     console.log('success', temp);
+//     console.log('success', temp)
 //   }
 // });
 //
@@ -20,7 +20,7 @@
 //   });
 // }
 //
-// getTempPromise('London').then(function (temp) {
+// getTempPromise('Philadelphia').then(function (temp) {
 //   console.log('promise success', temp);
 // }, function (err) {
 //   console.log('promise error', err);
@@ -30,16 +30,21 @@
 function addPromise (a, b) {
   return new Promise(function (resolve, reject) {
     if (typeof a === 'number' && typeof b === 'number') {
-      var c = a + b;
-      resolve(c);
+      resolve(a + b);
     } else {
-      reject('a and b must be number');
+      reject('A & b need to be numbers');
     }
   });
 }
 
-addPromise(2, 5).then(function (sum) {
-  console.log('promise success', sum);
+addPromise(2, 3).then(function (sum) {
+  console.log('success', sum);
 }, function (err) {
-  console.log('promise error', err);
+  console.log('error', err);
+});
+
+addPromise('andrew', 9).then(function (sum) {
+  console.log('this should not show up');
+}, function (err) {
+  console.log('This should appear', err);
 });
